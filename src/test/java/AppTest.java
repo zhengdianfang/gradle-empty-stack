@@ -13,9 +13,9 @@ public class AppTest {
     public void testMobileCall() {
         Mobile mobile = new Mobile("P30", "green", "HuaWei");
 
-        String message = mobile.call("Hello Jelly");
+        String message = mobile.call("Hello Tom");
 
-        Assert.assertEquals(message, "Message: Hello Jelly");
+        Assert.assertEquals(message, "Message: Hello Tom");
     }
 
     @Test
@@ -45,5 +45,25 @@ public class AppTest {
         String information = mobile.getInformation();
 
         Assert.assertEquals(information, "name: P30, color: green, brand: HuaWei");
+    }
+
+    @Test
+    @DisplayName("given message that length great then 10, when person call with iPhone then output right message")
+    public void testIPhoneLimitMessageLength() {
+        Mobile mobile = new IPhone("iPhoneX", "green", "iPhone");
+
+        String message = mobile.call("I want to watch movies");
+
+        Assert.assertEquals(message, "<iPhone> Message cannot be sent");
+    }
+
+    @Test
+    @DisplayName("given message that length great then 10, when person call with Android then output right message")
+    public void testAndroidMobileLimitMessageLength() {
+        Mobile mobile = new AndroidMobile("P30", "green", "HuaWei");
+
+        String message = mobile.call("I want to watch movies");
+
+        Assert.assertEquals(message, "<Android> Message cannot be sent");
     }
 }

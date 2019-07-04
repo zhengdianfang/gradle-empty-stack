@@ -7,4 +7,9 @@ public class AndroidMobile extends Mobile {
     public String call(String message) {
         return String.format("<Android>%s", super.call(message));
     }
+
+    @Override
+    public int limitMessageLength() {
+        return 15;
+    }
 }

@@ -7,4 +7,9 @@ public class IPhone extends Mobile {
     public String call(String message) {
         return String.format("<iPhone>%s", super.call(message));
     }
+
+    @Override
+    public int limitMessageLength() {
+        return 15;
+    }
 }
