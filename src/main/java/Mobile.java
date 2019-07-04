@@ -12,4 +12,8 @@ public class Mobile {
     public String call(String message) {
         return String.format("Message: %s", message);
     }
+
+    public String getInformation() {
+        return String.format("name: %s, color: %s, brand: %s", name, color, brand);
+    }
 }
