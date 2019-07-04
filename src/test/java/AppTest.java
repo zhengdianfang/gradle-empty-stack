@@ -66,4 +66,18 @@ public class AppTest {
 
         Assert.assertEquals(message, "<Android> Message cannot be sent");
     }
+
+    @Test
+    @DisplayName("given iPhone to person when it call then output right message.")
+    public void testPersonCallWithIPhone() {
+        Mobile mobile = new IPhone("iPhoneX", "green", "iPhone");
+        Person person = new Person("Katty", mobile);
+        String message = person.call("Hello Tom");
+        Assert.assertEquals(message, "<iPhone>Message: Hello Tom");
+
+        person.changeMobile(new AndroidMobile("P30", "green", "HuaWei"));
+        message = person.call("Hello Tom");
+        Assert.assertEquals(message, "<Android>Message: Hello Tom");
+
+    }
 }
